@@ -318,13 +318,7 @@ const agendamentosFiltrados =
   🔴 Cancelado
 </button>
 
-<button
-  onClick={() =>
-    cancelarAgendamento(item.id)
-  }
->
-  ❌ Cancelar
-</button>
+
         </div>
 
       ))}
