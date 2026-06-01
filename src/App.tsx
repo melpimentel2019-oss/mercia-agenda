@@ -2,14 +2,6 @@ import { useEffect, useState } from 'react'
 import { supabase } from './lib/supabase'
 import './App.css'
 
-const HORARIOS = [
-  '09:00',
-  '10:00',
-  '11:00',
-  '14:00',
-  '15:00',
-  '16:00',
-]
 
 function App() {
   const [servicos, setServicos] = useState<any[]>([])
@@ -20,7 +12,7 @@ function App() {
   const [horario, setHorario] = useState('')
 
   const [horariosOcupados, setHorariosOcupados] = useState<string[]>([])
-  const [agendamentos, setAgendamentos] = useState<any[]>([])
+  const [, setAgendamentos] = useState<any[]>([])
 
  
 
@@ -84,28 +76,6 @@ async function carregarHorarios(dataSelecionada: string) {
 }
   async function agendar() {
 
-    async function cancelarAgendamento(id: number) {
-
-  const confirmar = confirm(
-    'Deseja realmente cancelar este agendamento?'
-  )
-
-  if (!confirmar) return
-
-  const { error } = await supabase
-    .from('agendamentos')
-    .delete()
-    .eq('id', id)
-
-  if (error) {
-    alert('Erro ao cancelar')
-    return
-  }
-
-  alert('Agendamento cancelado!')
-
-  carregarAgendamentos()
-}
     
 
 alert("Horário escolhido: " + horario)

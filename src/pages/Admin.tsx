@@ -28,9 +28,7 @@ const dataAmanha = amanha
   .toISOString()
   .split('T')[0]
 
-  const agendamentosAmanha = agendamentos.filter(
-  item => item.data_agendamento === dataAmanha
-)
+  
 
   console.log('HOJE:', hoje)
 console.log('AMANHA:', dataAmanha)
