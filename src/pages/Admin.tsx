@@ -100,8 +100,8 @@ const agendamentosFiltrados =
     style={{
       background: '#11131F',
       minHeight: '100vh',
-      padding: '15px',
-      maxWidth: '1000px',
+      padding: '8px',
+      maxWidth: '300px',
       margin: '0 auto',
       color: 'white',
       textAlign: 'center'
@@ -111,8 +111,8 @@ const agendamentosFiltrados =
   src="/logo.jpeg"
   alt="Logo Mércia"
   style={{
-    width: '90px',
-    height: '90px',
+    width: '60px',
+    height: '60px',
     borderRadius: '50%',
     border: '4px solid #E6C35C',
     marginBottom: '20px',
@@ -122,7 +122,7 @@ const agendamentosFiltrados =
       <h1
   style={{
     color: '#E6C35C',
-    fontSize: '28px',
+    fontSize: '22px',
     marginBottom: '5px'
   }}
 >
@@ -146,7 +146,7 @@ const agendamentosFiltrados =
     background: '#C62828',
     color: 'white',
     border: 'none',
-    padding: '10px 20px',
+    padding: '8px 12px',
     borderRadius: '8px',
     cursor: 'pointer',
     marginBottom: '20px'
@@ -168,9 +168,9 @@ const agendamentosFiltrados =
   {' '}
   <div
   style={{
-    display: 'grid',
+    display: 'flex',
     gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-    gap: '10px',
+    gap: '5x',
     marginTop: '15px',
     marginBottom: '20px'
   }}
@@ -238,62 +238,44 @@ const agendamentosFiltrados =
   }
   style={{
     padding: '10px',
-    width: '250px',
+    width: '100%',
     borderRadius: '8px',
     marginBottom: '20px'
   }}
 />
 </div>
-      <div
+<div
   style={{
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '20px',
-    marginBottom: '20px',
-    flexWrap: 'wrap'
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '8px',
+    marginBottom: '15px'
   }}
 >
+  <div
+    style={{
+      background: '#1A1D2E',
+      border: '1px solid #E6C35C',
+      padding: '10px',
+      borderRadius: '10px'
+    }}
+  >
+    <h4>📅 Hoje</h4>
+    <h2>{agendamentosHoje.length}</h2>
+  </div>
 
   <div
     style={{
       background: '#1A1D2E',
       border: '1px solid #E6C35C',
-      padding: '15px',
-      borderRadius: '10px',
-      minWidth: '180px'
+      padding: '10px',
+      borderRadius: '10px'
     }}
   >
-<div
-  style={{
-    background: '#1A1D2E',
-    border: '1px solid #E6C35C',
-    padding: '15px',
-    borderRadius: '10px',
-    minWidth: '180px'
-  }}
->
-  <h3>📅 Amanhã</h3>
-  <h2>{agendamentosAmanha.length}</h2>
-</div>
-
-<div
-  style={{
-    background: '#1A1D2E',
-    border: '1px solid #E6C35C',
-    padding: '15px',
-    borderRadius: '10px',
-    minWidth: '180px'
-  }}
->
-  <h3>👥 Clientes</h3>
-  <h2>{totalClientes}</h2>
-</div>
-
-
-
-    <h3>📅 Hoje</h3>
-    <h2>{agendamentosHoje.length}</h2>
+    <h4>📋 Total</h4>
+    <h2>{agendamentos.length}</h2>
   </div>
+</div>
 
   <div
     style={{
