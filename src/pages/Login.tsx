@@ -116,21 +116,21 @@ function Login() {
       />
 
       <button
-  onClick={✨ Acessar Painel}
+  onClick={entrar}
   style={{
-  width: '100%',
-  background: '#E6C35C',
-  color: '#111',
-  border: 'none',
-  padding: '15px',
-  borderRadius: '12px',
-  fontWeight: 'bold',
-  fontSize: '16px',
-  cursor: 'pointer',
-  boxShadow: '0 0 15px rgba(230,195,92,.4)'
-}}
+    width: '100%',
+    background: '#E6C35C',
+    color: '#111',
+    border: 'none',
+    padding: '15px',
+    borderRadius: '12px',
+    fontWeight: 'bold',
+    fontSize: '16px',
+    cursor: 'pointer',
+    boxShadow: '0 0 15px rgba(230,195,92,.4)'
+  }}
 >
-  Entrar
+  ✨ Acessar Painel
 </button>
 <p
   style={{
