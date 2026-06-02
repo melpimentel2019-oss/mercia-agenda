@@ -28,7 +28,12 @@ const dataAmanha = amanha
   .toISOString()
   .split('T')[0]
 
-  
+  const agendamentosAmanha = agendamentos.filter(
+  item => item.data_agendamento === dataAmanha
+)
+const totalClientes = new Set(
+  agendamentos.map(item => item.telefone)
+).size
 
   console.log('HOJE:', hoje)
 console.log('AMANHA:', dataAmanha)
@@ -48,8 +53,8 @@ const agendamentosFiltrados =
     : agendamentos
 )
 .filter(item =>
-  item.cliente
-    ?.toLowerCase()
+  (item.cliente || '')
+  .toLowerCase()
     .includes(busca.toLowerCase())
 )
   useEffect(() => {
@@ -114,9 +119,24 @@ const agendamentosFiltrados =
     boxShadow: '0 0 25px #E6C35C'
   }}
 />
-      <h1 style={{ color: '#E6C35C' }}>
-        Painel da Mércia
-      </h1>
+      <h1
+  style={{
+    color: '#E6C35C',
+    fontSize: '38px',
+    marginBottom: '5px'
+  }}
+>
+  ✨ Painel Administrativo
+</h1>
+
+<p
+  style={{
+    color: '#ccc',
+    marginBottom: '20px'
+  }}
+>
+  Salão Mércia Beauty
+</p>
       <button
   onClick={() => {
     localStorage.removeItem('admin_logado')
@@ -146,11 +166,44 @@ const agendamentosFiltrados =
   </button>
 
   {' '}
+  <div
+  style={{
+    background: '#1A1D2E',
+    border: '1px solid #E6C35C',
+    padding: '15px',
+    borderRadius: '10px',
+    minWidth: '180px'
+  }}
+>
+  <h3>📅 Amanhã</h3>
+  <h2>{agendamentosAmanha.length}</h2>
+</div>
 
-  <button
-    onClick={() => setFiltro('amanha')}
-  >
-    📅 Amanhã
+<div
+  style={{
+    background: '#1A1D2E',
+    border: '1px solid #E6C35C',
+    padding: '15px',
+    borderRadius: '10px',
+    minWidth: '180px'
+  }}
+>
+  <h3>👥 Clientes</h3>
+  <h2>
+    {
+      new Set(
+        agendamentos.map(item => item.telefone)
+      ).size
+    }
+  </h2>
+</div>
+
+
+
+    <button
+      onClick={() => setFiltro('amanha')}
+    >
+      📅 Amanhã
   </button>
 
   {' '}
@@ -199,6 +252,34 @@ const agendamentosFiltrados =
       minWidth: '180px'
     }}
   >
+<div
+  style={{
+    background: '#1A1D2E',
+    border: '1px solid #E6C35C',
+    padding: '15px',
+    borderRadius: '10px',
+    minWidth: '180px'
+  }}
+>
+  <h3>📅 Amanhã</h3>
+  <h2>{agendamentosAmanha.length}</h2>
+</div>
+
+<div
+  style={{
+    background: '#1A1D2E',
+    border: '1px solid #E6C35C',
+    padding: '15px',
+    borderRadius: '10px',
+    minWidth: '180px'
+  }}
+>
+  <h3>👥 Clientes</h3>
+  <h2>{totalClientes}</h2>
+</div>
+
+
+
     <h3>📅 Hoje</h3>
     <h2>{agendamentosHoje.length}</h2>
   </div>
@@ -248,15 +329,27 @@ const agendamentosFiltrados =
      <p>
   <strong>Data:</strong> {item.data_agendamento}
 </p>
-<p>
+<div style={{ marginBottom: '15px' }}>
+  <p>
   <strong>Status:</strong>{' '}
 
-  {item.status === 'Agendado' && '🟡 Agendado'}
-
-  {item.status === 'Concluido' && '🟢 Concluído'}
-
-  {item.status === 'Cancelado' && '🔴 Cancelado'}
+  <span
+    style={{
+      background:
+        item.status === 'Concluido'
+          ? '#2E7D32'
+          : item.status === 'Cancelado'
+          ? '#C62828'
+          : '#F9A825',
+      padding: '6px 12px',
+      borderRadius: '20px',
+      fontWeight: 'bold'
+    }}
+  >
+    {item.status}
+  </span>
 </p>
+</div>
 
 <a
   href={`https://wa.me/55${item.telefone}`}
@@ -272,6 +365,19 @@ const agendamentosFiltrados =
   }}
 >
   💬 WhatsApp
+</a>
+<a
+  href={`tel:${item.telefone}`}
+  style={{
+    display: 'inline-block',
+    background: '#1976D2',
+    color: 'white',
+    padding: '10px 15px',
+    borderRadius: '8px',
+    textDecoration: 'none'
+  }}
+>
+  📞 Ligar
 </a>
 
 <br /><br />
@@ -303,12 +409,18 @@ const agendamentosFiltrados =
 {' '}
 
 <button
-  onClick={() =>
+ onClick={() => {
+  if (
+    window.confirm(
+      'Deseja realmente cancelar este agendamento?'
+    )
+  ) {
     atualizarStatus(
       item.id,
       'Cancelado'
     )
   }
+}}
 >
 
 
