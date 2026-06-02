@@ -121,7 +121,7 @@ setHorario('')
   src="/logo.jpeg"
   alt="Mercia Pimentel"
   style={{
-    width: '120x',
+    width: '120px',
     height: '120px',
     objectFit: 'cover',
     borderRadius: '50%',
@@ -145,21 +145,19 @@ setHorario('')
 <h1
   style={{
     color: '#E6C35C',
-    marginBottom: '0px',
-    fontSize: '2.5rem',
+    fontSize: '3.5rem',
+    marginBottom: '0',
     lineHeight: '1'
   }}
-
-  
 >
   Mercia
 </h1>
 
 <h1
   style={{
-    color: '#E6C35C',
-    marginTop: '0px',
-    fontSize: '3rem',
+    color: '#FFFFFF',
+    fontSize: '3.5rem',
+    marginTop: '0',
     lineHeight: '1'
   }}
 >
@@ -174,9 +172,24 @@ setHorario('')
 >
   Estudio de Beleza
 </p>
+<p
+  style={{
+    color: '#EAEAEA',
+    fontSize: '18px',
+    maxWidth: '500px',
+    margin: '20px auto 40px',
+    lineHeight: '1.6'
+  }}
+>
+  🌟 Agende seu horário no estúdio de beleza
+mais desejado da região.
+  <br />
+  Realce sua beleza com atendimento
+personalizado e resultados incríveis.
+</p>
 
       <input
-        placeholder="Nome"
+        placeholder="👤 Seu nome"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
       />
@@ -184,7 +197,7 @@ setHorario('')
       <br /><br />
 
       <input
-        placeholder="WhatsApp"
+        placeholder="📱 Seu WhatsApp"
         value={telefone}
         onChange={(e) => setTelefone(e.target.value)}
       />
@@ -192,7 +205,7 @@ setHorario('')
       <br /><br />
 
       <h3 style={{ color: '#E6C35C' }}>
-  💇‍♀️ Serviços Desejados
+  💎 Escolha os serviços desejados
 </h3>
 
 {servicos.map((s) => (
@@ -263,11 +276,34 @@ setHorario('')
 
       <br /><br />
 
-      <button onClick={agendar}>
-        AGENDAR
-      </button>
+<button
+  onClick={agendar}
+  style={{
+    background: '#E6C35C',
+    color: '#111',
+    border: 'none',
+    padding: '18px 30px',
+    borderRadius: '12px',
+    fontWeight: 'bold',
+    fontSize: '16px',
+    cursor: 'pointer',
+    boxShadow: '0 0 20px rgba(230,195,92,.4)'
+  }}
+>
+  ✨ AGENDAR MEU HORÁRIO
+</button>
 
-    </div>
+<p
+  style={{
+    marginTop: '40px',
+    color: '#888',
+    fontSize: '13px'
+  }}
+>
+  Atendimento com hora marcada • Mercia Pimentel Beauty
+</p>
+
+</div>
   )
 }
 
