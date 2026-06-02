@@ -239,15 +239,34 @@ personalizado e resultados incríveis.
     setData(e.target.value)
     carregarHorarios(e.target.value)
   }}
+  style={{
+    width: '100%',
+    padding: '12px',
+    borderRadius: '10px',
+    border: '1px solid #E6C35C',
+    background: '#1A1D2E',
+    color: 'white',
+    fontSize: '16px'
+  }}
 />
       
 
       <br /><br />
 
       <select
-        value={horario}
-        onChange={(e) => setHorario(e.target.value)}
-      >
+  value={horario}
+  onChange={(e) => setHorario(e.target.value)}
+  style={{
+    width: '100%',
+    padding: '12px',
+    borderRadius: '10px',
+    border: '1px solid #E6C35C',
+    background: '#1A1D2E',
+    color: 'white',
+    fontSize: '16px'
+  }}
+>
+      
         <option value="">Escolha um horário</option>
         {!horariosOcupados.includes('09:00') && (
   <option>09:00</option>

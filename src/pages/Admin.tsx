@@ -100,7 +100,7 @@ const agendamentosFiltrados =
     style={{
       background: '#11131F',
       minHeight: '100vh',
-      padding: '30px',
+      padding: '15px',
       maxWidth: '1000px',
       margin: '0 auto',
       color: 'white',
@@ -111,8 +111,8 @@ const agendamentosFiltrados =
   src="/logo.jpeg"
   alt="Logo Mércia"
   style={{
-    width: '140px',
-    height: '140px',
+    width: '90px',
+    height: '90px',
     borderRadius: '50%',
     border: '4px solid #E6C35C',
     marginBottom: '20px',
@@ -122,7 +122,7 @@ const agendamentosFiltrados =
       <h1
   style={{
     color: '#E6C35C',
-    fontSize: '38px',
+    fontSize: '28px',
     marginBottom: '5px'
   }}
 >
@@ -168,36 +168,47 @@ const agendamentosFiltrados =
   {' '}
   <div
   style={{
-    background: '#1A1D2E',
-    border: '1px solid #E6C35C',
-    padding: '15px',
-    borderRadius: '10px',
-    minWidth: '180px'
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+    gap: '10px',
+    marginTop: '15px',
+    marginBottom: '20px'
   }}
 >
-  <h3>📅 Amanhã</h3>
-  <h2>{agendamentosAmanha.length}</h2>
-</div>
+  <div
+    style={{
+      background: '#1A1D2E',
+      border: '1px solid #E6C35C',
+      padding: '10px',
+      borderRadius: '10px'
+    }}
+  >
+    <h3 style={{ fontSize: '16px', margin: 0 }}>
+      📅 Amanhã
+    </h3>
 
-<div
-  style={{
-    background: '#1A1D2E',
-    border: '1px solid #E6C35C',
-    padding: '15px',
-    borderRadius: '10px',
-    minWidth: '180px'
-  }}
->
-  <h3>👥 Clientes</h3>
-  <h2>
-    {
-      new Set(
-        agendamentos.map(item => item.telefone)
-      ).size
-    }
-  </h2>
-</div>
+    <h2 style={{ marginTop: '10px' }}>
+      {agendamentosAmanha.length}
+    </h2>
+  </div>
 
+  <div
+    style={{
+      background: '#1A1D2E',
+      border: '1px solid #E6C35C',
+      padding: '10px',
+      borderRadius: '10px'
+    }}
+  >
+    <h3 style={{ fontSize: '16px', margin: 0 }}>
+      👥 Clientes
+    </h3>
+
+    <h2 style={{ marginTop: '10px' }}>
+      {totalClientes}
+    </h2>
+  </div>
+</div>
 
 
     <button
