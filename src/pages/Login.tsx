@@ -12,7 +12,7 @@ function Login() {
 
     if (
       usuario === 'mercia' &&
-      senha === '123456'
+      senha === '124578'
     ) {
 
       localStorage.setItem(
